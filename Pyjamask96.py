@@ -194,10 +194,10 @@ def Pyjamask( rounds, index ):
         model = mat0.genConstrs( model, Y[r][0:32], Z[r][0:32] )
 
         mat1 = Matrix( M1 )
-        model = mat0.genConstrs( model, Y[r][32:64], Z[r][32:64] )
+        model = mat1.genConstrs( model, Y[r][32:64], Z[r][32:64] )
 #
         mat2 = Matrix( M2 )
-        model = mat0.genConstrs( model, Y[r][64:96], Z[r][64:96] )
+        model = mat2.genConstrs( model, Y[r][64:96], Z[r][64:96] )
         
         for i in range(0,96):
             model.addConstr(Z[r][i] + K[r][i] == X[r+1][i])
